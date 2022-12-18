@@ -1,4 +1,4 @@
-//  1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181.
+// 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181.
 // using recursion
 /* function Febbo(n){
     if(n==1 || n==0) return n;
@@ -18,7 +18,7 @@
   return dp[n];
 } */
 // Tabulation
-function Febbo(n, dp) {
+/* function Febbo(n, dp) {
      if (n <= 1) return n;
      dp[0]=0;
      dp[1]=1
@@ -29,5 +29,21 @@ function Febbo(n, dp) {
      
      return dp[n];
    }
-let dp=[]
-console.log(Febbo(11, dp));
+let dp=[] */
+
+// For space optimization in Tabulation
+function Febbo(n) {
+   
+   let  pre1=1;
+    let pre2=0
+   
+    for(let i=2; i<=n;i++){
+      let  curr=pre1 + pre2
+      pre2=pre1
+      pre1=curr
+    }
+    
+    return pre1;
+  }
+
+console.log(Febbo(10));
