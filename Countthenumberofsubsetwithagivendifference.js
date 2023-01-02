@@ -6,10 +6,10 @@ const subset = (arr, sum, len) => {
   t[0][0] = 1;
   for (let i = 1; i <= len; i++) {
     for (let j = 0; j <= sum; j++) {
-      if ((arr[i - 1] || 0) > j) {
-        t[i][j] = t[i - 1][j] || 0;
+      if ((arr[i - 1]) > j) {
+        t[i][j] = t[i - 1][j] ;
       } else {
-        t[i][j] = (t[i - 1][j] || 0) + (t[i - 1][j - arr[i - 1]] || 0);
+        t[i][j] = (t[i - 1][j] ) + (t[i - 1][j - arr[i - 1]]);
       }
     }
   }
